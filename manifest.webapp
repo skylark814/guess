@@ -1,7 +1,7 @@
 {
   "version": "1.0",
-  "name": "guessNumber",
-  "description": "guessNumber",
+  "name": "GuessNumber",
+  "description": "GuessNumber",
   "launch_path": "/index.html",
   "icons": {
     "128": "/res/icon.png"
