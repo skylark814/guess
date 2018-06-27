@@ -1,7 +1,5 @@
 let carLayer = cc.Layer.extend({
     sprite: null,
-    car1: "",
-    car2: "",
     dx: 1,
     background1: null,
     background2: null,
@@ -17,6 +15,7 @@ let carLayer = cc.Layer.extend({
         // title.y = cc.winSize.height * 7 / 8;
         // title.setColor(cc.color(255, 127, 0));
         // this.addChild(title, 0, "mytitle");
+
         this.car0 = new cc.Sprite(res.car0_png);
         this.car0.attr({
             x: this.car0.width,
@@ -56,24 +55,40 @@ let carLayer = cc.Layer.extend({
 
         this.win_size = cc.Director._getInstance().getWinSize();
 
+        this.background0 = cc.Sprite.create("res/track.png");
+        this.background0.setAnchorPoint(cc.p(0, 0));
+        this.background0.setPosition(cc.p(557, this.win_size.height / 5));
+        this.addChild(this.background0, 0);
+        var sprite_action = cc.RepeatForever.create(cc.MoveBy.create(4.0, cc.p(this.win_size.width, 0)));
+        this.background0.runAction(sprite_action);
 
         this.background1 = cc.Sprite.create("res/track.png");
         this.background1.setAnchorPoint(cc.p(0, 0));
         this.background1.setPosition(cc.p(0, this.win_size.height / 5));
-
         this.addChild(this.background1, 0);
-
-        var sprite_action = cc.RepeatForever.create(cc.MoveBy.create(5.0, cc.p(this.win_size.width, 0)));
+        var sprite_action = cc.RepeatForever.create(cc.MoveBy.create(4.0, cc.p(this.win_size.width, 0)));
         this.background1.runAction(sprite_action);
 
         this.background2 = cc.Sprite.create("res/track.png");
         this.background2.setAnchorPoint(cc.p(0, 0));
         this.background2.setPosition(cc.p(-500, this.win_size.height / 5));
-
         this.addChild(this.background2, 1);
-
-        var sprite_action = cc.RepeatForever.create(cc.MoveBy.create(5.0, cc.p(this.win_size.width, 0)));
+        var sprite_action = cc.RepeatForever.create(cc.MoveBy.create(4.0, cc.p(this.win_size.width, 0)));
         this.background2.runAction(sprite_action);
+
+        this.background3 = cc.Sprite.create("res/track.png");
+        this.background3.setAnchorPoint(cc.p(0, 0));
+        this.background3.setPosition(cc.p(-1000, this.win_size.height / 5));
+        this.addChild(this.background3, 1);
+        var sprite_action = cc.RepeatForever.create(cc.MoveBy.create(4.0, cc.p(this.win_size.width, 0)));
+        this.background3.runAction(sprite_action);
+
+        this.background4 = cc.Sprite.create("res/track.png");
+        this.background4.setAnchorPoint(cc.p(0, 0));
+        this.background4.setPosition(cc.p(-1500, this.win_size.height / 5));
+        this.addChild(this.background4, 1);
+        var sprite_action = cc.RepeatForever.create(cc.MoveBy.create(4.0, cc.p(this.win_size.width, 0)));
+        this.background4.runAction(sprite_action);
 
 
         return true;
