@@ -105,7 +105,7 @@ cc.game.onStart = function(){
 
     //load resources
     cc.LoaderScene.preload(g_resources, function () {
-        cc.director.runScene(new guess02Scene());
+        cc.director.runScene(new carScene());
     }, this);
 };
 cc.game.run();
