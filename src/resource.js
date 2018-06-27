@@ -31,10 +31,10 @@ var res = {
     enter2_png:"res/enter2.png",
     enter3_png:"res/enter3.png",
     back2_png:"res/back2.png",
+    car0_png:"res/car0.png",
     car1_png:"res/car1.png",
     car2_png:"res/car2.png",
     car3_png:"res/car3.png",
-    car4_png:"res/car4.png",
     track_png:"res/track.png"
 
 };

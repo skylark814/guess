@@ -17,33 +17,33 @@ let carLayer = cc.Layer.extend({
         // title.y = cc.winSize.height * 7 / 8;
         // title.setColor(cc.color(255, 127, 0));
         // this.addChild(title, 0, "mytitle");
+        this.car0 = new cc.Sprite(res.car0_png);
+        this.car0.attr({
+            x: this.car0.width,
+            y: cc.winSize.height * 0.41
+        });
+        this.addChild(this.car0, 2, "mycar0");
+
         this.car1 = new cc.Sprite(res.car1_png);
         this.car1.attr({
             x: this.car1.width,
-            y: cc.winSize.height * 0.45
+            y: cc.winSize.height * 0.36
         });
         this.addChild(this.car1, 2, "mycar1");
 
         this.car2 = new cc.Sprite(res.car2_png);
         this.car2.attr({
             x: this.car2.width,
-            y: cc.winSize.height * 0.39
+            y: cc.winSize.height * 0.31
         });
         this.addChild(this.car2, 2, "mycar2");
 
         this.car3 = new cc.Sprite(res.car3_png);
         this.car3.attr({
             x: this.car3.width,
-            y: cc.winSize.height * 0.33
+            y: cc.winSize.height * 0.26
         });
         this.addChild(this.car3, 2, "mycar3");
-
-        this.car4 = new cc.Sprite(res.car4_png);
-        this.car4.attr({
-            x: this.car4.width,
-            y: cc.winSize.height * 0.28
-        });
-        this.addChild(this.car4, 2, "mycar4");
 
         this.init();
         this.scheduleUpdate();
@@ -80,19 +80,18 @@ let carLayer = cc.Layer.extend({
     },
 
     update: function () {
-        let ax1 = Math.random() * 3;
-        let car1 = this.getChildByName("mycar1");
-        let ax2 = Math.random() * 3;
-        let car2 = this.getChildByName("mycar2");
-        let ax3 = Math.random() * 3;
-        let car3 = this.getChildByName("mycar3");
-        let ax4 = Math.random() * 3;
-        let car4 = this.getChildByName("mycar4");
+        let ax = [];
+        let car = [];
 
-        car1.x += this.dx + ax1;
-        car2.x += this.dx + ax2;
-        car3.x += this.dx + ax3;
-        car4.x += this.dx + ax4;
+        for (let i = 0; i < 4; i++) {
+            ax.push(Math.random() * 3);
+            car.push(this.getChildByName("mycar" + i));
+        }
+
+        for (let i = 0; i < 4; i++) {
+            car[i].x += this.dx + ax[i];
+        }
+
 
         if (this.background1.getPosition().y <= -this.win_size.height) {
             this.background1.setPosition(0, this.win_size.height);
